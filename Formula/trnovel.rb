@@ -1,20 +1,20 @@
 class Trnovel < Formula
   desc "Terminal reader for novel"
   homepage "https://yexiyue.github.io/TRNovel"
-  version "0.10.3"
+  version "0.10.4"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/yexiyue/TRNovel/releases/download/trnovel-v0.10.3/trnovel-aarch64-apple-darwin.tar.xz"
-      sha256 "752c88dd897c254db55c1f33ce64f41f1f99a6b182fb1400ed1cfb3b8cdbf7b5"
+      url "https://github.com/yexiyue/TRNovel/releases/download/trnovel-v0.10.4/trnovel-aarch64-apple-darwin.tar.xz"
+      sha256 "09c62e11c8e7fd6953a14a150d6d278ca5cdf9afe9803f402141d04e2e0e6ac8"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/yexiyue/TRNovel/releases/download/trnovel-v0.10.3/trnovel-x86_64-apple-darwin.tar.xz"
-      sha256 "ee2fc7ef2170298199fc5c44baa62d053abb454df888b131ab3c15f4c8c72991"
+      url "https://github.com/yexiyue/TRNovel/releases/download/trnovel-v0.10.4/trnovel-x86_64-apple-darwin.tar.xz"
+      sha256 "4127d7c115c041053ff734bacafd8ffdeebac7c0ffb65e992a035448db4a915c"
     end
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/yexiyue/TRNovel/releases/download/trnovel-v0.10.3/trnovel-x86_64-unknown-linux-gnu.tar.xz"
-    sha256 "568ca15cee0583ef8647eb7d2f29cbda41e3319339b3e1a9c6e454edb661f8a6"
+    url "https://github.com/yexiyue/TRNovel/releases/download/trnovel-v0.10.4/trnovel-x86_64-unknown-linux-gnu.tar.xz"
+    sha256 "9424ed399370759f80d327fdf1312bd18d9c580c6cbfc60d256f4d38efbb9a61"
   end
   license "MIT"
 

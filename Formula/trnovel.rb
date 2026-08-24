@@ -1,20 +1,20 @@
 class Trnovel < Formula
   desc "Terminal reader for novel"
   homepage "https://yexiyue.github.io/TRNovel"
-  version "0.16.0"
+  version "0.17.0"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/yexiyue/TRNovel/releases/download/trnovel-v0.16.0/trnovel-aarch64-apple-darwin.tar.xz"
-      sha256 "c42b5dc8da30f477104764a7144be818da42a20f51afae7b1c14b66a022d0fd1"
+      url "https://github.com/yexiyue/TRNovel/releases/download/trnovel-v0.17.0/trnovel-aarch64-apple-darwin.tar.xz"
+      sha256 "03fe9f0d706c6bb00bd970e8238fc6d543938eb68c7425c632170ec77222648e"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/yexiyue/TRNovel/releases/download/trnovel-v0.16.0/trnovel-x86_64-apple-darwin.tar.xz"
-      sha256 "0df7e61e2e763dfd4b5116d6943fda12d0ffa61235cf9ff07a65c2dc020b9591"
+      url "https://github.com/yexiyue/TRNovel/releases/download/trnovel-v0.17.0/trnovel-x86_64-apple-darwin.tar.xz"
+      sha256 "61de65146f22d0d7a79306a9630e7b6740c5aaabdce0b361d43e1476fc07a1f2"
     end
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/yexiyue/TRNovel/releases/download/trnovel-v0.16.0/trnovel-x86_64-unknown-linux-gnu.tar.xz"
-    sha256 "fb5ba343ce6a67022574d80508e44e1d690fb6d988cb13ed928cd248cece1ca5"
+    url "https://github.com/yexiyue/TRNovel/releases/download/trnovel-v0.17.0/trnovel-x86_64-unknown-linux-gnu.tar.xz"
+    sha256 "604b98ebeb7461f0083a0901397218c0418a97be71a19772bfab81e97369389a"
   end
   license "MIT"
 
@@ -41,9 +41,15 @@ class Trnovel < Formula
   end
 
   def install
-    bin.install "trn", "trnovel" if OS.mac? && Hardware::CPU.arm?
-    bin.install "trn", "trnovel" if OS.mac? && Hardware::CPU.intel?
-    bin.install "trn", "trnovel" if OS.linux? && Hardware::CPU.intel?
+    if OS.mac? && Hardware::CPU.arm?
+      bin.install "trn", "trnovel"
+    end
+    if OS.mac? && Hardware::CPU.intel?
+      bin.install "trn", "trnovel"
+    end
+    if OS.linux? && Hardware::CPU.intel?
+      bin.install "trn", "trnovel"
+    end
 
     install_binary_aliases!
 

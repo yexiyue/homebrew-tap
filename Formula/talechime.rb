@@ -1,14 +1,14 @@
 class Talechime < Formula
   desc "Local speech synthesis, continuous listening and JSON Lines worker"
   homepage "https://github.com/yexiyue/talechime"
-  version "0.4.0"
+  version "0.4.1"
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/yexiyue/talechime/releases/download/talechime-v0.4.0/talechime-aarch64-apple-darwin.tar.xz"
-    sha256 "6d8f655d5b7b36ac0a67401a5a9adf421ecfd84f9dba64e1c6d1635223e92f0e"
+    url "https://github.com/yexiyue/talechime/releases/download/talechime-v0.4.1/talechime-aarch64-apple-darwin.tar.xz"
+    sha256 "fbfea723d01ee041e874d0f00141acda684db33f5c8a56ad185da500a6b257e8"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/yexiyue/talechime/releases/download/talechime-v0.4.0/talechime-x86_64-unknown-linux-gnu.tar.xz"
-    sha256 "cb611267883eefbb7afcf505998e1ab22807575b7104d345bfa6b23adfe8a529"
+    url "https://github.com/yexiyue/talechime/releases/download/talechime-v0.4.1/talechime-x86_64-unknown-linux-gnu.tar.xz"
+    sha256 "87a120b265ec1d3024826c5d6da1c1485c806a8dca4e3a9cfcf6e2c829ecc8a4"
   end
   license "MIT"
 

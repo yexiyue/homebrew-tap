@@ -1,21 +1,39 @@
 class Trnovel < Formula
   desc "Terminal reader for novel"
   homepage "https://yexiyue.github.io/TRNovel"
-  version "0.18.1"
-  if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/yexiyue/TRNovel/releases/download/trnovel-v0.18.1/trnovel-aarch64-apple-darwin.tar.xz"
-    sha256 "e3a9a849e1c41102604f0f583ae02453f01a3dd40f9015ccdaf31672b89f2223"
+  version "0.18.2"
+  if OS.mac?
+    if Hardware::CPU.arm?
+      url "https://github.com/yexiyue/TRNovel/releases/download/trnovel-v0.18.2/trnovel-aarch64-apple-darwin.tar.xz"
+      sha256 "2db97398613d1328b508611dffd5623c1121bed122f1a8df4ae63b010bd49d3a"
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/yexiyue/TRNovel/releases/download/trnovel-v0.18.2/trnovel-x86_64-apple-darwin.tar.xz"
+      sha256 "ee9f6043ee728c5f0b5f340f24312b4d32c7c0c2660df75126449e4101a1ceca"
+    end
   end
-  if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/yexiyue/TRNovel/releases/download/trnovel-v0.18.1/trnovel-x86_64-unknown-linux-gnu.tar.xz"
-    sha256 "fb774b1ae7a88859ad91578ccd82c7776b7d769b8a317c4f3c36836cc6c2dc8e"
+  if OS.linux?
+    if Hardware::CPU.arm?
+      url "https://github.com/yexiyue/TRNovel/releases/download/trnovel-v0.18.2/trnovel-aarch64-unknown-linux-musl.tar.xz"
+      sha256 "a15570037715fd4dd3d7377ea5d90bb43213cdc36dc24bc8dd35236295c29824"
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/yexiyue/TRNovel/releases/download/trnovel-v0.18.2/trnovel-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "56ec0f961457e13e1d1c5cc61767d07e3e88e6e374ccac9b31f30e7346e6f6a3"
+    end
   end
   license "MIT"
 
   BINARY_ALIASES = {
-    "aarch64-apple-darwin":     {},
-    "x86_64-pc-windows-gnu":    {},
-    "x86_64-unknown-linux-gnu": {},
+    "aarch64-apple-darwin":               {},
+    "aarch64-unknown-linux-gnu":          {},
+    "aarch64-unknown-linux-musl-dynamic": {},
+    "aarch64-unknown-linux-musl-static":  {},
+    "x86_64-apple-darwin":                {},
+    "x86_64-pc-windows-gnu":              {},
+    "x86_64-unknown-linux-gnu":           {},
+    "x86_64-unknown-linux-musl-dynamic":  {},
+    "x86_64-unknown-linux-musl-static":   {},
   }.freeze
 
   def target_triple
@@ -35,6 +53,12 @@ class Trnovel < Formula
 
   def install
     if OS.mac? && Hardware::CPU.arm?
+      bin.install "trn", "trnovel"
+    end
+    if OS.mac? && Hardware::CPU.intel?
+      bin.install "trn", "trnovel"
+    end
+    if OS.linux? && Hardware::CPU.arm?
       bin.install "trn", "trnovel"
     end
     if OS.linux? && Hardware::CPU.intel?
